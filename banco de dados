@@ -1,0 +1,98 @@
+#importando o módulo
+import sqlite3
+import pandas as pd 
+
+#criando e conectando o banco de dados
+conexaoDB = sqlite3.connect("meu_banco")
+
+#criando o cursor que aponta para o banco de dados
+cursor = conexaoDB.cursor()
+print(cursor)
+
+#criando uma tabela/entidade dentro do banco de dados 
+# cursor.execute("""
+#    CREATE TABLE IF NOT EXISTS jogos(
+#    id integer primary key autoincrement,
+#    titulo text,
+#    genero text,
+#    ano
+#    )""")
+
+# #inserindo registros em uma tabela/entidade
+# cursor.execute(
+#  "INSERT INTO agenda VALUES(null, 'Mario Bros', '1985')"
+#  )       
+
+# cursor.execute(
+#    "INSERT INTO agenda VALUES(null, 'Super Mario', '2007')"
+#  )        
+
+# cursor.execute(
+#    "INSERT INTO agenda VALUES(null, 'Super Castle', '1991')"
+#  )        
+# conexaoDB.commit()
+
+# cursor.execute("SELECT * FROM agenda")
+# print(cursor.fetchall())
+
+# #selecionando um registro pelo nome 
+# cursor.execute("SELECT * FROM agenda WHERE titulo = 'Mario Bros'")
+# print(cursor.fetchall())
+
+# #selecionando todos os registros em uma tabela 
+# cursor.execute("SELECT * FROM agenda ORDER BY titulo")
+# print(cursor.fetchall())
+
+# #utilizando registros em variaveis 
+# registros = cursor.execute("SELECT * FROM agenda")
+# print(cursor.fetchall())
+
+# for umRegistro in registros:
+#   print(umRegistro)
+
+#atualizando um registro 
+#cursor.execute("UPDATE agenda SET nome = 'valéria' WHERE id = 2")
+#conexaoDB.commit()
+
+#apagando um registro
+#cursor.execute("DELETE FROM agenda WHERE id = 2")
+#conexaoDB.commit()
+
+
+#dados a serem analisados 
+#dados = {
+#  "Estado": ["SP", "RJ", "CE"],
+#  "Capital": ["São Paulo", "Rio de Janieiro", "Ceará"]
+#}
+
+#injetando os dados no pandas e imprimindo
+#dataFrame = pandas.DataFrame(dados)
+#print(dataFrame)
+
+#interagindo o banco de dados com pandas
+#dados = pandas.read_sql_query(
+#  "SELECT * FROM agenda", conexaoDB
+#)
+
+#tabela = dados.to_string(index = False)
+#print(tabela)
+
+conexaoDB.close()
+
+
+
+#Lucas Alves
+#Vinicius Alencar 
+
+jogos = {
+   'Titulo' : ['Super Mario Bros', 'Super Mario Galaxy', 'Super Castlevania IV'],
+   'Gênero' : ['Plataforma', 'Plataforma', 'Plataforma'],
+   'Ano' : [1985, 2007, 1991]
+}
+
+df = pd.DataFrame(jogos)
+
+print(df)
+
+
+
